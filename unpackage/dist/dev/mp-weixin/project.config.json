@@ -11,6 +11,7 @@
     "minified": false,
     "newFeature": true,
     "bigPackageSizeSupport": true,
+    "checkSiteMap": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -21,7 +22,24 @@
   "libVersion": "2.26.1",
   "appid": "wx045e61e85b9cd03f",
   "projectname": "uni-shop01",
-  "condition": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": []
+    }
+  },
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

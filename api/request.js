@@ -7,6 +7,10 @@ export const reqNavList = () => {
   return uni.$http.get('/api/public/v1/home/catitems')
 }
 //获取首页楼层数据  /api/public/v1/home/floordata  GET请求  无携带参数
-export const reqFloorList=()=>{
+export const reqFloorList = () => {
   return uni.$http.get('/api/public/v1/home/floordata')
+}
+// 获取分类数据  /api/public/v1/categories  GET请求  无携带参数
+export const reqCateList = () => {
+  return uni.$http.get('/api/public/v1/categories')
 }
