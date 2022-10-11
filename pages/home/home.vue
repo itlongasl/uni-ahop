@@ -1,5 +1,9 @@
 <template>
   <view>
+    <!-- 搜索区 -->
+    <view class="search-box">
+      <my-search @click="gotoSearch"></my-search>
+    </view>
     <!-- 轮播图区 -->
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
       <swiper-item v-for="swiper in swiperList" :key="goods_id">
@@ -113,6 +117,12 @@
           })
         })
         this.floorList = res.message
+      },
+      // 自定义事件  跳转到搜索页
+      gotoSearch() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        })
       }
     }
   }
@@ -154,5 +164,11 @@
   .floor-img-box {
     display: flex;
     padding-left: 10rpx;
+  }
+
+  .search-box {
+    position: sticky;
+    top: 0;
+    z-index: 999;
   }
 </style>

@@ -1,5 +1,7 @@
 <template>
   <view>
+    <!-- <my-search :bgcolor="'pink'" :radius="3"></my-search> -->
+    <my-search @click="gotoSearch"></my-search>
     <view class="scroll-view-container">
       <!-- 左侧滚动栏 -->
       <scroll-view scroll-y="true" class="left-scroll" :style="{ height: wh + 'px' }">
@@ -17,8 +19,7 @@
           </view>
           <!-- 三级分类 -->
           <view class="cate-lv3">
-            <view class="cate-lv3-item" v-for="(item3,index) in item2.children" :key="index"
-              @click="gotoGoodsList(item3)">
+            <view class="cate-lv3-item" v-for="(item3,i) in item2.children" :key="i" @click="gotoGoodsList(item3)">
               <image :src="item3.cat_icon.replace('dev','web')"></image>
               <text>{{item3.cat_name}}</text>
             </view>
@@ -49,7 +50,8 @@
     onLoad() {
       // 获取设备可用屏幕高度
       const sysInfo = uni.getSystemInfoSync()
-      this.wh = sysInfo.windowHeight
+      //减去搜索区域的50px高度
+      this.wh = sysInfo.windowHeight - 50
       //调用函数请求分类数据
       this.getCateList()
     },
@@ -77,7 +79,13 @@
       gotoGoodsList(value) {
         // 点击分类选项跳转到分包页面goods_list页面并传相应的id
         uni.navigateTo({
-          url: '/subpkg/goods_list/goods_list?cid=' + value.cat_id
+          url: '/subpkg/goods_list/goods_list?id=' + value.cat_id
+        })
+      },
+      // 自定义事件  跳转到搜索页
+      gotoSearch() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
         })
       }
     }

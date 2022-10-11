@@ -14,3 +14,9 @@ export const reqFloorList = () => {
 export const reqCateList = () => {
   return uni.$http.get('/api/public/v1/categories')
 }
+// 获取商品搜索列表  /api/public/v1/goods/qsearch  GET请求  携带query(搜索关键词)参数
+export const reqSearchList = (query) => {
+  return uni.$http.get('/api/public/v1/goods/qsearch', {
+    query: query
+  })
+}

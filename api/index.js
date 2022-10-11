@@ -8,7 +8,7 @@ uni.$http = $http
 //请求根路径
 // $http.baseUrl = 'https://www.uinav.com'
 // $http.baseUrl = 'https://applet-base-api-t.itheima.net'
-$http.baseUrl = 'http://api-ugo-web.itheima.net'
+$http.baseUrl = 'https://api-ugo-web.itheima.net'
 
 // 请求拦截器  在发起请求之前能做一些事情
 $http.beforeRequest = function(options) {
