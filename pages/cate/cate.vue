@@ -79,7 +79,7 @@
       gotoGoodsList(value) {
         // 点击分类选项跳转到分包页面goods_list页面并传相应的id
         uni.navigateTo({
-          url: '/subpkg/goods_list/goods_list?id=' + value.cat_id
+          url: '/subpkg/goods_list/goods_list?cid=' + value.cat_id
         })
       },
       // 自定义事件  跳转到搜索页

@@ -67,9 +67,10 @@
         const {
           data: res
         } = await reqSearchList(this.kw)
-        if (res.meta.status == 200) {
-          this.searchResults = res.message
+        if (res.meta.status !== 200) {
+          return uni.$showMsg()
         }
+        this.searchResults = res.message
       },
       // 点击商品列表跳转到商品详情
       gotoDetail(item) {

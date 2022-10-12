@@ -20,3 +20,7 @@ export const reqSearchList = (query) => {
     query: query
   })
 }
+//获取商品列表数据  /api/public/v1/goods/search  GET请求  携带参数
+export const reqGoodsList = (queryObj) => {
+  return uni.$http.get('/api/public/v1/goods/search', queryObj)
+}
