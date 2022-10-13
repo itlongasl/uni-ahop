@@ -8,7 +8,7 @@
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
       <swiper-item v-for="swiper in swiperList" :key="goods_id">
         <navigator class="swiper-item" :url="`/subpkg/goods_detail/goods_detail?goods_id=`+swiper.goods_id">
-          <img :src="swiper.image_src" alt="">
+          <img :src="swiper.image_src">
         </navigator>
       </swiper-item>
     </swiper>

@@ -24,3 +24,7 @@ export const reqSearchList = (query) => {
 export const reqGoodsList = (queryObj) => {
   return uni.$http.get('/api/public/v1/goods/search', queryObj)
 }
+// 获取商品详情数据  /api/public/v1/goods/detail  GET请求  携带商品id
+export const reqDetailInfo = (id) => {
+  return uni.$http.get('/api/public/v1/goods/detail?goods_id=' + id)
+}
