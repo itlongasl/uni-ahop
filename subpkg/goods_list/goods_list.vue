@@ -94,34 +94,5 @@
 </script>
 
 <style lang="scss">
-  .goods-item {
-    display: flex;
-    padding: 10px 5px;
-    border-bottom: 1px solid #f0f0f0;
 
-    .goods-item-left {
-      .goods-pic {
-        width: 100px;
-        height: 100px;
-        margin-right: 5px;
-      }
-    }
-
-    .goods-item-right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      .goods-name {
-        font-size: 13px
-      }
-
-      .goods-info-box {
-        .goods-price {
-          color: #c00000;
-          font-size: 16px
-        }
-      }
-    }
-  }
 </style>

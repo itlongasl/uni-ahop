@@ -50,9 +50,10 @@
     reqNavList,
     reqFloorList
   } from '../../api/request.js'
+  import badegMix from '@/mixins/tabbar-badeg.js'
   export default {
+    mixins: [badegMix],
     data() {
-
       return {
         //轮播图数据
         swiperList: [],

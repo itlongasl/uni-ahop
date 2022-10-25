@@ -32,6 +32,11 @@
 </template>
 
 <script>
+  // 按需导入
+  import {
+    mapMutations,
+    mapGetters
+  } from 'vuex'
   import {
     reqDetailInfo
   } from '../../api/request.js'
@@ -50,7 +55,7 @@
         }, {
           icon: 'cart',
           text: '购物车',
-          info: 9
+          info: 0
         }],
         buttonGroup: [{
             text: '加入购物车',
@@ -69,7 +74,25 @@
       this.goods_id = options.goods_id
       this.getDetailInfo()
     },
+    computed: {
+      ...mapGetters('cart', ['total'])
+    },
+    watch: {
+      total: {
+        // 立即监听
+        immediate: true,
+        handler(newValue) {
+          // 找出购物车数据
+          const findResult = this.options.find(x => x.text === '购物车')
+          if (findResult) {
+            // 让购物车商品数量等于最新的值
+            findResult.info = newValue
+          }
+        }
+      }
+    },
     methods: {
+      ...mapMutations('cart', ['addToCart']),
       // 获取商品详情数据函数
       async getDetailInfo() {
         const {
@@ -97,6 +120,22 @@
           uni.switchTab({
             url: '/pages/cart/cart'
           })
+        }
+      },
+      buttonClick(e) {
+        if (e.content.text === '加入购物车') {
+          // 组织商品信息对象
+          //{ goods_id, goods_name, goods_price, goods_count,goods_small_logo,goods_state}
+          const goods = {
+            goods_id: this.goodsInfo.goods_id, //商品id
+            goods_name: this.goodsInfo.goods_name, //商品名称
+            goods_price: this.goodsInfo.goods_price, //商品价格
+            goods_count: 1, //商品数量
+            goods_small_logo: this.goodsInfo.goods_small_logo, //商品图片
+            goods_state: true //商品选中状态
+          }
+          // 调用该addToCart方法
+          this.addToCart(goods)
         }
       }
     }

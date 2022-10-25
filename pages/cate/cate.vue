@@ -34,7 +34,9 @@
   import {
     reqCateList
   } from '../../api/request.js'
+  import badegMix from '@/mixins/tabbar-badeg.js'
   export default {
+    mixins: [badegMix],
     data() {
       return {
         // 当前设备可用屏幕高度
