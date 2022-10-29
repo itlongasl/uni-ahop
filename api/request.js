@@ -28,3 +28,17 @@ export const reqGoodsList = (queryObj) => {
 export const reqDetailInfo = (id) => {
   return uni.$http.get('/api/public/v1/goods/detail?goods_id=' + id)
 }
+//微信登录获取token参数  /api/public/v1/users/wxlogin  POST请求  携带参数
+export const reqUserToken = (query) => {
+  return uni.$http.post('/api/public/v1/users/wxlogin', query)
+}
+// 创建订单请求  /api/public/v1/my/orders/create  POST请求  
+export const reqPayOrder = (orderInfo) => {
+  return uni.$http.post('/api/public/v1/my/orders/create', orderInfo)
+}
+// 订单支付  /api/public/v1/my/orders/req_unifiedorder  POST请求  
+export const reqUnifiedorder = (orderNumber) => {
+  return uni.$http.post('/api/public/v1/my/orders/req_unifiedorder', {
+    order_number: orderNumber
+  })
+}
